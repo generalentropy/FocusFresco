@@ -3,6 +3,7 @@
   --main-light: #dbf7fe;
   --main-dark: #121212;
   --secondary-dark: #3a3a3a;
+  --third-dark: #374545;
 }
 
 body {
@@ -16,7 +17,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   color: var(--secondary-dark);
 }
 
@@ -45,9 +45,12 @@ body {
 }
 
 .timer {
+  display: flex;
+  align-items: center;
   padding: 40px 0;
   font-size: 80px;
-  color: var(--secondary-dark);
+  color: var(--third-dark);
+  font-weight: 600;
 }
 
 .timer-info {
@@ -100,7 +103,7 @@ body {
 .ambiance-container {
   display: flex;
   gap: 20px;
-  padding: 20px 0;
+  padding: 20px 0 0 0;
 }
 .ambiance-title {
   font-weight: 700;
@@ -131,4 +134,17 @@ body {
 
 .displaynone {
   display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .timer-container {
+    padding: 30px 0;
+  }
+
+  .ambiance {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0.4em 0.4em;
+  }
 }

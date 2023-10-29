@@ -33,6 +33,10 @@ class View {
     handler();
   }
 
+  requestNotificationPermission() {
+    Notification.requestPermission();
+  }
+
   startPomodoro() {
     this.startSession();
     this.sessionState = true;
@@ -159,12 +163,15 @@ class View {
         url.lastIndexOf("/") + 1,
         url.lastIndexOf(".mp3")
       );
+
+      // Si l'utilisateur a changé d'ambiance sonore pendant que la pause est active
+
+      if (fileName !== this.currentAmbiance) console.log("different");
+
       console.log("current playing url :", fileName);
       console.log(this.currentAmbiance);
       this.currentAudio.play();
     }
-
-    // Si l'utilisateur a changé d'ambiance sonore pendant que la pause est active
   }
 
   isAudioPlaying(currentAudio) {
