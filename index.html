@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusFresco</title>
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <script type="module" src="./src/js/controller.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>FocusFresco</h1>
+        <img src="/img/logo2.svg" alt="logo" class="header__logo" />
+      </header>
+      <div class="timer-container">
+        <div class="ambiance-title">Pick Your Mood</div>
+        <div class="ambiance-container">
+          <button class="ambiance ambiance-1" data-ambiance="fire">
+            <img src="/img/campfire.svg" />
+          </button>
+          <button class="ambiance ambiance-2" data-ambiance="waves">
+            <img src="/img/sea-and-sun.svg" />
+          </button>
+          <button class="ambiance ambiance-3" data-ambiance="forest">
+            <img src="/img/tree.svg" />
+          </button>
+          <button class="ambiance ambiance-4" data-ambiance="storm">
+            <img src="/img/weather-storm.svg" />
+          </button>
+          <button class="ambiance ambiance-5" data-ambiance="muted">
+            <img src="/img/mute.svg" />
+          </button>
+        </div>
+
+        <div class="timer">
+          <button class="main-session-button">Start a session</button>
+          <div class="timer-info displaynone"></div>
+        </div>
+
+        <div class="buttons-container displaynone">
+          <button class="button start-button">Start</button>
+          <button class="button pause-button">Pause</button>
+          <button class="button reset-button">Reset</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
