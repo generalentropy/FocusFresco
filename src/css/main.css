@@ -285,7 +285,7 @@ body {
 
 .close:hover,
 .close:focus {
-  color: var(--punchy);
+  color: var(--punchy-dark);
   text-decoration: none;
 }
 
