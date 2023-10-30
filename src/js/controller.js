@@ -13,11 +13,12 @@ init();
 
 // Récupération des éléments
 const modal = document.querySelector(".modal-wrapper");
-const openModalBtn = document.getElementById("openModal");
-const closeModalBtn = document.getElementById("closeModal");
+const openModalBtn = document.getElementById("open-modal");
+const closeModalBtn = document.getElementById("close-modal");
 
 // Ouverture de la modale
 openModalBtn.addEventListener("click", function () {
+  console.log("hello");
   modal.style.display = "flex";
 });
 
@@ -32,3 +33,5 @@ window.addEventListener("click", function (event) {
     modal.style.display = "none";
   }
 });
+
+console.log(openModalBtn);

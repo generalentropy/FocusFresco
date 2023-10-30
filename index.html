@@ -40,6 +40,15 @@
           </button>
         </div>
 
+        <div class="duration-container">
+          <div class="duration-title">Select a duration :</div>
+          <div class="btn-duration-container">
+            <button class="btn-duration active">Default</button>
+            <button class="btn-duration">45min</button>
+            <button class="btn-duration">60min</button>
+          </div>
+        </div>
+
         <div class="timer">
           <button class="main-session-button">Start a session</button>
           <div class="timer-info displaynone"></div>
@@ -54,13 +63,14 @@
     </div>
     <footer class="footer"></footer>
 
-    <button id="openModal">?</button>
+    <div id="open-modal">?</div>
+    <div id="open-settings"><img src="img/settings.svg" /></div>
 
     <!-- modale -->
     <section class="modal-wrapper">
       <div class="modal" id="modal">
         <div class="modal-content">
-          <span class="close" id="closeModal">&times;</span>
+          <span class="close" id="close-modal">&times;</span>
 
           <h3>What is the Pomodoro Technique?</h3>
           <br />

@@ -6,6 +6,8 @@ class View {
   currentAmbiance = "mute";
   currentAudio = null;
   timer = new Timer();
+  durationContainer = document.querySelector(".duration-container");
+  durationBtn = document.querySelector(".btn-duration");
   divTimer = document.querySelector(".timer");
   startButton = document.querySelector(".start-button");
   pauseButton = document.querySelector(".pause-button");
@@ -40,6 +42,7 @@ class View {
   startPomodoro() {
     this.startSession();
     this.sessionState = true;
+    this.durationContainer.classList.add("displaynone");
 
     if (this.timer.isRunning()) return;
     if (!this.timer.isPaused())
