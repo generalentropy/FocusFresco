@@ -34,10 +34,7 @@ class controlView extends View {
     this.divTimer.textContent = currentTime;
   }
 
-  pomodoroFinished(timerObject) {
-    // Call congrat method
-    // Call pause timer
-  }
+  pomodoroFinished(timerObject) {}
 
   addHandlerPauseTimer(handler) {
     this.btnPause.addEventListener("click", () => {
