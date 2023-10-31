@@ -1,189 +1,54 @@
-import { MAIN_TIMER_FOCUS_MIN, MAIN_TIMER_PAUSE_MIN } from "../config";
+import { TIMER_MIN, TIMER_SEC, PAUSE_MIN, PAUSE_SEC } from "../config";
 import Timer from "easytimer.js";
 
-class View {
-  sessionState = false;
-  currentAmbiance = "mute";
-  currentAudio = null;
-  timer = new Timer();
-  durationContainer = document.querySelector(".duration-container");
+export default class View {
+  // durationContainer = document.querySelector(".duration-container");
   durationBtn = document.querySelector(".btn-duration");
   divTimer = document.querySelector(".timer");
-  startButton = document.querySelector(".start-button");
-  pauseButton = document.querySelector(".pause-button");
-  resetButton = document.querySelector(".reset-button");
+  btnStart = document.querySelector(".start-button");
+  btnPause = document.querySelector(".pause-button");
+  btnReset = document.querySelector(".reset-button");
   timerInfo = document.querySelector(".timer-info");
-  ambianceIcons = document.querySelectorAll(".ambiance");
-  ambianceIconsContainer = document.querySelector(".container");
+  ambianceBtns = document.querySelectorAll(".ambiance");
+  ambianceBtnsContainer = document.querySelector(".container");
   mainStartSessionBtn = document.querySelector(".main-session-button");
   btnsContainer = document.querySelector(".buttons-container");
   btnMuted = document.querySelector(".ambiance-5");
+  modalAbout = document.querySelector(".modal-wrapper");
+  openAboutModalBtn = document.getElementById("open-modal");
+  closeAboutModalBtn = document.getElementById("close-modal");
+  btnsDuration = document.querySelector(".btn-duration-container");
 
-  addhandlerStartTimer(handler) {
-    this.startButton.addEventListener("click", () => handler());
+  addHandlerOpenAbout(handler) {
+    this.openAboutModalBtn.addEventListener("click", handler);
   }
 
-  addhandlerPauseTimer(handler) {
-    this.pauseButton.addEventListener("click", () => handler());
+  addHandlerCloseAbout(handler) {
+    this.closeAboutModalBtn.addEventListener("click", handler);
   }
 
-  addhandlerResetTimer(handler) {
-    this.resetButton.addEventListener("click", () => handler());
+  openAbout() {
+    this.modalAbout.style.display = "flex";
   }
-
-  addhandlerListenAmbianceClick(handler) {
-    handler();
-  }
-
-  requestNotificationPermission() {
-    Notification.requestPermission();
-  }
-
-  startPomodoro() {
-    this.startSession();
-    this.sessionState = true;
-    this.durationContainer.classList.add("displaynone");
-
-    if (this.timer.isRunning()) return;
-    if (!this.timer.isPaused())
-      this.divTimer.textContent = `00:${MAIN_TIMER_FOCUS_MIN}:00`;
-
-    this.resumeAmbianceAudio();
-
-    this.timer.start({
-      countdown: true,
-      startValues: { minutes: MAIN_TIMER_FOCUS_MIN },
-    });
-
-    this.timer.addEventListener(
-      "secondsUpdated",
-      this.updateDisplay.bind(this)
-    );
-    this.timer.addEventListener(
-      "targetAchieved",
-      this.pomodoroFinished.bind(this)
-    );
-  }
-
-  startSession() {
-    this.mainStartSessionBtn.addEventListener("click", () => {
-      this.startPomodoro();
-
-      this.btnsContainer.classList.remove("displaynone");
-      if (this.currentAmbiance === "mute") {
-        this.btnMuted.classList.add("active");
-      }
-      if (this.currentAmbiance !== "mute")
-        this.loadAmbianceAudio(this.currentAmbiance);
+  closeAbout() {
+    this.closeAboutModalBtn.addEventListener("click", () => {
+      this.modalAbout.style.display = "none";
     });
   }
 
-  updateDisplay() {
-    const time = this.timer.getTimeValues().toString();
-    this.divTimer.textContent = time;
-  }
+  setActiveClass(clickedBtn, buttonClass, parentClass) {
+    // Get the parent container of the clicked button
+    const container = clickedBtn.closest(parentClass);
 
-  pomodoroFinished() {
-    this.timerInfo.textContent = "Session finished";
-  }
+    // Get all buttons with the specified class within the container
+    const buttons = container.querySelectorAll(buttonClass);
 
-  pausePomodoro() {
-    this.timer.pause();
-    if (this.currentAudio === null) return;
-    this.currentAudio.pause();
-  }
-
-  resetPomodoro() {
-    this.divTimer.textContent = this.timer.reset();
-    this.divTimer.textContent = `00:${MAIN_TIMER_FOCUS_MIN}:00`;
-    this.stopAmbianceAudio();
-    this.loadAmbianceAudio(this.currentAmbiance);
-  }
-
-  removeAllActive() {
-    this.ambianceIcons.forEach((e) => e.classList.remove("active"));
-  }
-
-  updateAmbianceState(ambianceValue) {
-    this.currentAmbiance = ambianceValue;
-    console.log(`currentAmbiance updated to: ${this.currentAmbiance}`);
-  }
-
-  ambianceIconsAddActive(handler) {
-    this.ambianceIconsContainer.addEventListener("click", (e) => {
-      const clickedIcon = e.target.closest(".ambiance");
-      if (!clickedIcon) return;
-      this.removeAllActive();
-      clickedIcon.classList.add("active");
-      const ambianceValue = clickedIcon.dataset.ambiance;
-
-      this.updateAmbianceState(ambianceValue);
-      console.log(ambianceValue);
-
-      if (!this.sessionState || this.timer.isPaused()) return;
-      if (this.sessionState) {
-        console.log("Audio is playing");
-        this.stopAmbianceAudio();
-        this.loadAmbianceAudio(this.currentAmbiance);
-      }
+    // Remove active class from all buttons within the container
+    buttons.forEach((button) => {
+      button.classList.remove("active");
     });
-  }
 
-  loadAmbianceAudio(ambiance) {
-    if (ambiance === "muted") return "muted";
-
-    // Stop the currently playing audio (if any) before playing a new one.
-    if (this.currentAudio) {
-      this.pauseAmbianceAudio();
-      this.currentAudio.currentTime = 0;
-    }
-    // https://assets.visualartisan.fr/focusfresco/storm.mp3
-    this.currentAudio = new Audio(
-      `https://assets.visualartisan.fr/focusfresco/${ambiance}.mp3`
-    );
-    this.currentAudio.play();
-  }
-
-  stopAmbianceAudio() {
-    if (this.currentAudio) {
-      this.currentAudio.pause();
-      this.currentAudio.currentTime = 0; // Set audio time to the beginning.
-      this.currentAudio = null; // Reset the current audio.
-    }
-  }
-
-  pauseAmbianceAudio() {
-    if (this.currentAudio && !this.currentAudio.paused) {
-      this.currentAudio.pause();
-    }
-  }
-
-  resumeAmbianceAudio() {
-    console.log(this.currentAudio);
-    if (this.currentAudio && this.currentAudio.paused) {
-      const url = this.currentAudio.src;
-      const fileName = url.substring(
-        url.lastIndexOf("/") + 1,
-        url.lastIndexOf(".mp3")
-      );
-
-      // Si l'utilisateur a changé d'ambiance sonore pendant que la pause est active
-
-      if (fileName !== this.currentAmbiance) console.log("different");
-
-      console.log("current playing url :", fileName);
-      console.log(this.currentAmbiance);
-      this.currentAudio.play();
-    }
-  }
-
-  isAudioPlaying(currentAudio) {
-    return (
-      !this.currentAudio.paused &&
-      this.currentAudio.currentTime > 0 &&
-      !this.currentAudio.ended
-    );
+    // Add active class to the clicked button
+    clickedBtn.classList.add("active");
   }
 }
-
-export default new View();

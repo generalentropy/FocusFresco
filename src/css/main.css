@@ -4,7 +4,7 @@
   --main-dark: #121212;
   --secondary-dark: #3a3a3a;
   --third-dark: #374545;
-  --punchy: #fc79c1;
+  --punchy: #ff5ab5;
   --punchy-dark: #cc0673;
 }
 
@@ -107,7 +107,7 @@ body {
 }
 
 .button:active {
-  color: #666;
+  color: var(--main-dark);
   box-shadow: inset 3.2px 3.2px 9.6px #c5c5c5, inset -3.2px -3.2px 9.6px #ffffff;
 }
 
@@ -130,7 +130,7 @@ body {
   border-radius: 1.2em;
   background: #e8e8e8;
   border: 1px solid #e8e8e8;
-  transition: all 0.3s;
+  /* transition: all 0.3s; */
   box-shadow: 4.8px 4.8px 9.6px #c5c5c5, -4.8px -4.8px 9.6px #ffffff;
 }
 

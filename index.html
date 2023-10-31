@@ -35,7 +35,7 @@
           <button class="ambiance ambiance-4" data-ambiance="storm">
             <img src="/img/weather-storm.svg" />
           </button>
-          <button class="ambiance ambiance-5" data-ambiance="muted">
+          <button class="ambiance ambiance-5 active" data-ambiance="muted">
             <img src="/img/mute.svg" />
           </button>
         </div>
@@ -43,21 +43,27 @@
         <div class="duration-container">
           <div class="duration-title">Select a duration :</div>
           <div class="btn-duration-container">
-            <button class="btn-duration active">Default</button>
-            <button class="btn-duration">45min</button>
-            <button class="btn-duration">60min</button>
+            <button class="btn-duration active" data-duration="25">
+              25min
+            </button>
+            <button class="btn-duration" data-duration="45">45min</button>
+            <button class="btn-duration" data-duration="60">60min</button>
           </div>
         </div>
 
         <div class="timer">
           <button class="main-session-button">Start a session</button>
-          <div class="timer-info displaynone"></div>
+          <div class="timer-info"></div>
         </div>
 
         <div class="buttons-container displaynone">
-          <button class="button start-button">Start</button>
-          <button class="button pause-button">Pause</button>
-          <button class="button reset-button">Reset</button>
+          <button class="button start-button" data-state="started">
+            Start
+          </button>
+          <button class="button pause-button" data-state="paused">Pause</button>
+          <button class="button reset-button" data-state="started">
+            Reset
+          </button>
         </div>
       </div>
     </div>
