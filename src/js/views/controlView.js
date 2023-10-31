@@ -29,6 +29,10 @@ class controlView extends View {
    
   }
 
+  addHandlerResumeTimer(handler) {
+    this.btnStart.addEventListener("click", handler);
+  }
+
   updateDisplay(timerObject) {
     const currentTime = timerObject.getTimeValues().toString();
     this.divTimer.textContent = currentTime;
@@ -44,7 +48,6 @@ class controlView extends View {
 
   addHandlerResetTimer(handler) {
     this.btnReset.addEventListener("click", () => {
-      // this.fixStartDelay();
       handler();
     });
   }

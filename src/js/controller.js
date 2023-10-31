@@ -5,7 +5,6 @@ import * as model from "./model.js";
 // Set state.ambiance
 const handleAmbianceChange = (ambiance) => {
   model.methods.setAmbiance(ambiance);
-
   // Stop current audio
   model.methods.stopAudio();
   //  Load audio
@@ -52,6 +51,12 @@ const handleResetTimer = () => {
   model.methods.getTimer().reset();
 };
 
+// Resume timer
+const handleResumeTimer = () => {
+  model.methods.getTimer().start();
+  console.log("resume timer");
+};
+
 // Restart timer with selected session duration
 const handleRestartTimer = () => {
   if (!model.state.isSessionActive) return;
@@ -69,6 +74,7 @@ const init = function () {
   controlView.addHandlerStartSession(handlerStartTimer)
   controlView.addHandlerPauseTimer(handlePauseTimer);
   controlView.addHandlerResetTimer(handleResetTimer);
+  controlView.addHandlerResumeTimer(handleResumeTimer)
   
  
  
