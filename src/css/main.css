@@ -2,7 +2,7 @@
   --main-background: #e0e0e0;
   --main-light: #ebebeb;
   --main-dark: #121212;
-  --secondary-dark: #3a3a3a;
+  --secondary-dark: rgb(58, 58, 58);
   --third-dark: #374545;
   --punchy: #ff5ab5;
   --punchy-dark: #cc0673;
@@ -123,14 +123,22 @@ body {
 
 .ambiance-container {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   padding: 20px 0 0 0;
 }
 .ambiance-title {
   font-weight: 700;
 }
 
+.ambiance img {
+  width: 40px;
+  height: 40px;
+}
+
 .ambiance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 80px;
   height: 80px;
   cursor: pointer;
@@ -239,8 +247,9 @@ body {
   border-radius: 50px;
 }
 
-#open-settings img {
-  width: 25px;
+.icons-top {
+  width: 18px;
+  height: 18px;
 }
 
 #open-settings:hover,
@@ -318,6 +327,11 @@ body {
     padding: 30px 0;
   }
 
+  .ambiance img {
+    width: 25px;
+    height: 25px;
+  }
+
   .ambiance {
     width: 50px;
     height: 50px;
@@ -325,6 +339,9 @@ body {
     padding: 0.4em 0.4em;
   }
 
+  .ambiance-container {
+    gap: 16px;
+  }
   .header__logo {
     width: 100px;
   }
