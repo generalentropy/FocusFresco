@@ -1,16 +1,17 @@
-import startView from "./views/startView";
-import { URL_ASSETS_AUDIO } from "./config";
 import controlView from "./views/controlView";
+import audioView from "./views/audioView";
 import * as model from "./model.js";
-
-const initAudio = function (state) {
-  state.currentAudio = new Audio(`${URL_ASSETS_AUDIO}${state.ambiance}.mp3`);
-  state.currentAudio.play();
-};
 
 // Set state.ambiance
 const handleAmbianceChange = (ambiance) => {
   model.methods.setAmbiance(ambiance);
+
+  // Stop current audio
+  model.methods.stopAudio();
+  //  Load audio
+  model.methods.loadAudio();
+  //  Play audio
+  model.methods.playAudio();
 };
 
 // Set current state
@@ -25,12 +26,6 @@ const handleTimerChange = (sessionDuration) => {
 
 // Start main timer
 const handlerStartTimer = () => {
-  // callbacks object with onUpdate and onFinish methods
-  // const callbacks = {
-  //   onUpdate: () => {},
-  //   onFinish: () => {},
-  // };
-
   // Initializes timer
   const timer = model.methods.startTimer();
   // Passing object timer to the view / which set up its own view-related event
@@ -66,8 +61,8 @@ const handleRestartTimer = () => {
 
 // prettier-ignore
 const init = function () {
-  startView.addHandlerOpenAbout(startView.openAbout.bind(startView));
-  startView.addHandlerCloseAbout(startView.closeAbout.bind(startView));
+  controlView.addHandlerOpenAbout(controlView.openAbout.bind(controlView));
+  controlView.addHandlerCloseAbout(controlView.closeAbout.bind(controlView));
   controlView.adHandlerSetTimerDuration(handleTimerChange, handleRestartTimer);
   controlView.adHandlerSetAmbiance(handleAmbianceChange);
   controlView.addHandlersetGlobalState(handleStateChange)

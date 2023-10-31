@@ -80,7 +80,6 @@ class controlView extends View {
   }
 
   fixStartDelay(getSessionDuration) {
-    console.log(getSessionDuration);
     const sessionDuration = getSessionDuration; // get the latest sessionDuration
     this.divTimer.textContent = `00:${sessionDuration}:00`;
   }
