@@ -1,6 +1,6 @@
 export const TIMER_HOUR = "00";
-export const TIMER_MIN = "00";
-export const TIMER_SEC = "05";
+export const TIMER_MIN = "25";
+export const TIMER_SEC = "00";
 export const PAUSE_MIN = "10";
 export const PAUSE_SEC = "00";
 export const audioConfig = {
