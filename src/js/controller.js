@@ -1,9 +1,8 @@
 import controlView from "./views/controlView";
-import audioView from "./views/audioView";
 import * as model from "./model.js";
 
 // Set state.ambiance
-const handleAmbianceChange = (ambiance) => {
+const ambianceChange = (ambiance) => {
   model.methods.setAmbiance(ambiance);
   // Stop current audio
   model.methods.stopAudio();
@@ -14,70 +13,76 @@ const handleAmbianceChange = (ambiance) => {
 };
 
 // Set current state
-const handleStateChange = (state) => {
+const stateChange = (state) => {
   model.methods.setGlobalState(state);
 };
 
 // Set timer duration
-const handleTimerChange = (sessionDuration) => {
+const timerChange = (sessionDuration) => {
   model.methods.setSessionDuration(sessionDuration);
 };
 
 // Start main timer
-const handlerStartTimer = () => {
+const startTimer = () => {
+  const callbacks = {
+    onUpdate: () => {},
+    onFinish: model.methods.playAlertSound,
+  };
+
   // Initializes timer
-  const timer = model.methods.startTimer();
-  // Passing object timer to the view / which set up its own view-related event
+  const timer = model.methods.startTimer(callbacks);
+  // Passing object timer to the view
   controlView.addHandlerStartTimer(timer);
   // Fix 1sec delay
-  controlView.fixStartDelay(model.state.sessionDuration);
-  // Set sesstion to active
+  controlView.fixStartDelay(model.state);
+  // Set session to active
   model.methods.setIsSessionActive(true);
-  // Display control buttons
+  // Display timer control buttons
   controlView.displayControlbuttons();
+  // Hide and clean information texts
+  controlView.cleanInfosDivs();
 };
 
 // Pause timer
-const handlePauseTimer = () => {
+const pauseTimer = () => {
   if (model.methods.getTimer().isPaused()) return;
   console.log("pause");
   model.methods.getTimer().pause();
 };
 
 // Reset timer
-const handleResetTimer = () => {
+const resetTimer = () => {
   console.log("Reset");
-  controlView.fixStartDelay(model.state.sessionDuration);
+  controlView.fixStartDelay(model.state);
   model.methods.getTimer().reset();
 };
 
 // Resume timer
-const handleResumeTimer = () => {
-  model.methods.getTimer().start();
+const resumeTimer = () => {
+  //  countdown: true : if not, timer start in chrono mode
+  model.methods.getTimer().start({
+    countdown: true,
+  });
   console.log("resume timer");
 };
 
 // Restart timer with selected session duration
-const handleRestartTimer = () => {
+const restartTimer = () => {
   if (!model.state.isSessionActive) return;
-  controlView.fixStartDelay(model.state.sessionDuration);
-  model.methods.restartTimer(model.state.sessionDuration);
+  controlView.fixStartDelay(model.state);
+  model.methods.restartTimer(model.state.sessionDurationMin);
 };
 
-// prettier-ignore
 const init = function () {
   controlView.addHandlerOpenAbout(controlView.openAbout.bind(controlView));
   controlView.addHandlerCloseAbout(controlView.closeAbout.bind(controlView));
-  controlView.adHandlerSetTimerDuration(handleTimerChange, handleRestartTimer);
-  controlView.adHandlerSetAmbiance(handleAmbianceChange);
-  controlView.addHandlersetGlobalState(handleStateChange)
-  controlView.addHandlerStartSession(handlerStartTimer)
-  controlView.addHandlerPauseTimer(handlePauseTimer);
-  controlView.addHandlerResetTimer(handleResetTimer);
-  controlView.addHandlerResumeTimer(handleResumeTimer)
-  
- 
- 
+  controlView.adHandlerSetTimerDuration(timerChange, restartTimer);
+  controlView.adHandlerSetAmbiance(ambianceChange);
+  controlView.addHandlersetGlobalState(stateChange);
+  controlView.addHandlerStartSession(startTimer);
+  controlView.addHandlerPauseTimer(pauseTimer);
+  controlView.addHandlerResetTimer(resetTimer);
+  controlView.addHandlerResumeTimer(resumeTimer);
 };
 
 init();

@@ -26,8 +26,7 @@ class controlView extends View {
     timerObject.addEventListener("targetAchieved", () => this.pomodoroFinished(timerObject));
 
     console.log('Timer started');
-   
-  }
+   }
 
   addHandlerResumeTimer(handler) {
     this.btnStart.addEventListener("click", handler);
@@ -38,7 +37,9 @@ class controlView extends View {
     this.divTimer.textContent = currentTime;
   }
 
-  pomodoroFinished(timerObject) {}
+  pomodoroFinished(timerObject) {
+    console.log("Timer finished");
+  }
 
   addHandlerPauseTimer(handler) {
     this.btnPause.addEventListener("click", () => {
@@ -82,13 +83,20 @@ class controlView extends View {
     reset();
   }
 
-  fixStartDelay(getSessionDuration) {
-    const sessionDuration = getSessionDuration; // get the latest sessionDuration
-    this.divTimer.textContent = `00:${sessionDuration}:00`;
+  fixStartDelay(state) {
+    const hours = state.sessionDurationHour;
+    const mins = state.sessionDurationMin;
+    const secs = state.sessionDurationSec;
+    this.divTimer.textContent = `${hours}:${mins}:${secs}`;
   }
 
   displayControlbuttons() {
     this.btnsContainer.classList.remove("displaynone");
+  }
+
+  cleanInfosDivs() {
+    this.displayNone(this.durationTitle);
+    this.visibilityHidden(this.ambianceTitle);
   }
 
   adHandlerSetAmbiance(handler) {

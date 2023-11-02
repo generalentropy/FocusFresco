@@ -6,9 +6,12 @@ export const state = {
   ambiance: "muted",
   isSessionActive: false,
   currentAudio: null,
-  sessionDuration: "25",
+  sessionDurationHour: config.TIMER_HOUR,
+  sessionDurationMin: config.TIMER_MIN,
+  sessionDurationSec: config.TIMER_SEC,
   currentState: "",
   timer: new Timer(),
+  alertEndTimer: new Audio(config.audioConfig.soundAlertUrl),
 };
 
 export const methods = {
@@ -23,8 +26,8 @@ export const methods = {
   },
 
   setSessionDuration(sessionDuration) {
-    state.sessionDuration = sessionDuration;
-    console.log(`Current session duration : ${state.sessionDuration}`);
+    state.sessionDurationMin = sessionDuration;
+    console.log(`Current session duration : ${state.sessionDurationMin}`);
   },
 
   setIsSessionActive(current) {
@@ -36,7 +39,7 @@ export const methods = {
   },
 
   getSessionDuration() {
-    return state.sessionDuration;
+    return state.sessionDurationMin;
   },
 
   getIsSessionActive() {
@@ -47,13 +50,19 @@ export const methods = {
     state.timer.stop();
   },
 
-  startTimer() {
+  startTimer(callbacks) {
     const timer = state.timer;
 
     timer.start({
       countdown: true,
-      startValues: { minutes: state.sessionDuration },
+      startValues: {
+        minutes: state.sessionDurationMin,
+        seconds: state.sessionDurationSec,
+      },
     });
+
+    state.timer.addEventListener("secondsUpdated", callbacks.onUpdate);
+    state.timer.addEventListener("targetAchieved", callbacks.onFinish);
 
     return timer;
   },
@@ -64,10 +73,10 @@ export const methods = {
     state.timer.stop();
     state.timer.start({
       countdown: true,
-      startValues: { minutes: state.sessionDuration },
+      startValues: { minutes: state.sessionDurationMin },
     });
     console.log(
-      `Timer restarted with session duration : ${state.sessionDuration}`
+      `Timer restarted with session duration : ${state.sessionDurationMin}`
     );
   },
 
@@ -104,6 +113,10 @@ export const methods = {
     state.currentAudio.loop = true;
 
     return state.currentAudio;
+  },
+
+  playAlertSound() {
+    state.alertEndTimer.play();
   },
 
   async playAudio() {

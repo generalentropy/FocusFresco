@@ -1,8 +1,4 @@
-import { TIMER_MIN, TIMER_SEC, PAUSE_MIN, PAUSE_SEC } from "../config";
-import Timer from "easytimer.js";
-
 export default class View {
-  // durationContainer = document.querySelector(".duration-container");
   durationBtn = document.querySelector(".btn-duration");
   divTimer = document.querySelector(".timer");
   btnStart = document.querySelector(".start-button");
@@ -18,6 +14,8 @@ export default class View {
   openAboutModalBtn = document.getElementById("open-modal");
   closeAboutModalBtn = document.getElementById("close-modal");
   btnsDuration = document.querySelector(".btn-duration-container");
+  ambianceTitle = document.querySelector(".ambiance-title");
+  durationTitle = document.querySelector(".duration-title");
 
   addHandlerOpenAbout(handler) {
     this.openAboutModalBtn.addEventListener("click", handler);
@@ -31,9 +29,15 @@ export default class View {
     this.modalAbout.style.display = "flex";
   }
   closeAbout() {
-    this.closeAboutModalBtn.addEventListener("click", () => {
-      this.modalAbout.style.display = "none";
-    });
+    this.modalAbout.style.display = "none";
+  }
+
+  displayNone(...divs) {
+    divs.forEach((div) => (div.style.display = "none"));
+  }
+
+  visibilityHidden(...divs) {
+    divs.forEach((div) => (div.style.visibility = "hidden"));
   }
 
   setActiveClass(clickedBtn, buttonClass, parentClass) {
