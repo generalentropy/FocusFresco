@@ -79,6 +79,7 @@ const init = function () {
   controlView.addHandlerCloseAbout(controlView.closeAbout.bind(controlView));
   controlView.addHandlerOpenSettings(controlView.openSettings.bind(controlView));
   controlView.addHandlerCloseSettings(controlView.closeSettings.bind(controlView));
+  controlView.addHandlerToggleVolume(controlView.toggleVolumePanel.bind(controlView));
   controlView.adHandlerSetTimerDuration(timerChange, restartTimer);
   controlView.adHandlerSetAmbiance(ambianceChange);
   controlView.addHandlersetGlobalState(stateChange);

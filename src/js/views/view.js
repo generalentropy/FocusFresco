@@ -19,6 +19,8 @@ export default class View {
   settingsPanel = document.querySelector(".settings-wrapper");
   openSettingsBtn = document.getElementById("open-settings");
   closeSettingsBtn = document.getElementById("close-settings");
+  toggleVolumeBtn = document.querySelector(".open-volume");
+  volumePanel = document.querySelector(".volume-wrapper");
 
   addHandlerOpenAbout(handler) {
     this.openAboutModalBtn.addEventListener("click", handler);
@@ -36,6 +38,10 @@ export default class View {
     this.closeSettingsBtn.addEventListener("click", handler);
   }
 
+  addHandlerToggleVolume(handler) {
+    this.toggleVolumeBtn.addEventListener("click", handler);
+  }
+
   openAbout() {
     this.modalAbout.style.display = "flex";
   }
@@ -50,12 +56,10 @@ export default class View {
     this.settingsPanel.style.display = "none";
   }
 
-  displayNone(...divs) {
-    divs.forEach((div) => (div.style.display = "none"));
-  }
+  toggleVolumePanel() {
+    this.volumePanel.classList.toggle("displaynone");
 
-  visibilityHidden(...divs) {
-    divs.forEach((div) => (div.style.visibility = "hidden"));
+    this.toggleVolumeBtn.classList.toggle("background-toggle");
   }
 
   setActiveClass(clickedBtn, buttonClass, parentClass) {

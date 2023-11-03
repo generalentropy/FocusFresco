@@ -46,11 +46,34 @@
   border-radius: 50px;
 }
 
+.open-volume {
+  box-sizing: border-box;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  cursor: pointer;
+  color: var(--main-light);
+  background-color: var(--secondary-dark);
+  width: 30px;
+  height: 30px;
+  right: 90px;
+  top: 10px;
+  border-radius: 50px;
+}
+
 .icons-top {
   width: 18px;
   height: 18px;
 }
 
+.background-toggle {
+  background-color: var(--punchy-dark);
+}
+
+#open-volume:hover,
 #open-settings:hover,
 #open-modal:hover {
   background-color: var(--punchy-dark);
@@ -75,7 +98,7 @@
   background-color: #fefefe;
   padding: 30px;
   max-height: 80%;
-  max-width: 400px;
+  max-width: 460px;
   line-height: 18px;
   overflow: auto;
 }
@@ -186,7 +209,7 @@
 
 .volume-wrapper {
   position: absolute;
-  top: 30dvh;
+  top: 25dvh;
   right: 4px;
   height: 20rem;
   width: 3rem;
@@ -196,7 +219,7 @@
 .volume-wrapper::after {
   display: block;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   color: var(--main-light);
   width: 100%;
   text-align: center;
