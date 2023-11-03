@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FocusFresco - Productivity app</title>
-    <link rel="stylesheet" href="/node_modules/reset-css/reset.css" />
-    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./src/sass/main.scss" />
     <script type="module" src="./src/js/controller.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +20,7 @@
         <img src="/img/logo2.svg" alt="logo" class="header__logo" />
       </header>
       <div class="timer-container">
-        <div class="ambiance-title">Pick your mood</div>
+        <div class="ambiance-title">Pick your mood or not</div>
         <div class="ambiance-container">
           <button class="ambiance ambiance-1" data-ambiance="fire">
             <img src="/img/fire-solid.svg" />
@@ -126,5 +125,20 @@
         </div>
       </div>
     </section>
+    <section class="settings-wrapper">
+      <div class="settings">
+        <div class="settings-content">
+          <span class="close-settings" id="close-settings">&times;</span>
+          <h1>Settings</h1>
+
+          <p>Set timer duration</p>
+          <p>Set pause duration</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="volume-wrapper">
+      <input type="range" min="0" max="100" value="50" />
+    </div>
   </body>
 </html>

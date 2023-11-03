@@ -16,6 +16,9 @@ export default class View {
   btnsDuration = document.querySelector(".btn-duration-container");
   ambianceTitle = document.querySelector(".ambiance-title");
   durationTitle = document.querySelector(".duration-title");
+  settingsPanel = document.querySelector(".settings-wrapper");
+  openSettingsBtn = document.getElementById("open-settings");
+  closeSettingsBtn = document.getElementById("close-settings");
 
   addHandlerOpenAbout(handler) {
     this.openAboutModalBtn.addEventListener("click", handler);
@@ -25,11 +28,26 @@ export default class View {
     this.closeAboutModalBtn.addEventListener("click", handler);
   }
 
+  addHandlerOpenSettings(handler) {
+    this.openSettingsBtn.addEventListener("click", handler);
+  }
+
+  addHandlerCloseSettings(handler) {
+    this.closeSettingsBtn.addEventListener("click", handler);
+  }
+
   openAbout() {
     this.modalAbout.style.display = "flex";
   }
   closeAbout() {
     this.modalAbout.style.display = "none";
+  }
+
+  openSettings() {
+    this.settingsPanel.style.display = "flex";
+  }
+  closeSettings() {
+    this.settingsPanel.style.display = "none";
   }
 
   displayNone(...divs) {

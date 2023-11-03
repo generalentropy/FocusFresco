@@ -34,6 +34,10 @@ export const methods = {
     state.isSessionActive = current;
   },
 
+  getAmbiance() {
+    return state.ambiance;
+  },
+
   getTimer() {
     return state.timer;
   },

@@ -1,0 +1,60 @@
+/* -------------------------- Mobile --------------------------  */
+
+@media only screen and (max-width: 600px) {
+  .timer-container {
+    padding: 30px 0;
+  }
+
+  .timer {
+    padding: 30px 0;
+  }
+
+  .ambiance img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .ambiance {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0.4em 0.4em;
+  }
+
+  .ambiance-container {
+    gap: 16px;
+  }
+  .header__logo {
+    width: 100px;
+  }
+
+  .modal-content {
+    font-size: 12px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #fefefe;
+    padding: 30px;
+    width: 80%;
+    max-height: 80%;
+    line-height: 15px;
+    overflow: auto;
+  }
+
+  .btn-duration {
+    padding: 10px 22px;
+  }
+
+  .btn-duration-container {
+    gap: 18px;
+  }
+
+  .modal-content li {
+    margin: 2px 0;
+    list-style: decimal inside;
+  }
+
+  #open-settings {
+    right: 10px;
+    top: 50px;
+  }
+}

@@ -1,0 +1,24 @@
+:root {
+  --main-background: #e0e0e0;
+  --main-light: #ebebeb;
+  --main-dark: #121212;
+  --secondary-dark: rgb(58, 58, 58);
+  --third-dark: #374545;
+  --punchy: #ff5ab5;
+  --punchy-light: rgba(255, 90, 181, 0.486);
+  --punchy-dark: #cc0673;
+  --grey: #9e9e9e;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* fallback for browsers that do not support dvh */
+  min-height: 100dvh;
+  background-color: var(--main-background);
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  flex: 1;
+}
