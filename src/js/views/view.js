@@ -57,10 +57,10 @@ export default class View {
     this.settingsPanel.style.display = "none";
   }
 
+  // Show/hide volume and manage behavior
   toggleVolumePanel() {
-    // Ajoutez des gestionnaires d'événements pour mouseenter et mouseleave
+    // If user is hovering the slider, cancel the timeout
     this.volumePanel.onmouseenter = () => {
-      // L'utilisateur survole l'élément, annuler le timeout existant
       if (this.timeoutId) {
         clearTimeout(this.timeoutId);
         this.timeoutId = null;
@@ -68,7 +68,7 @@ export default class View {
     };
 
     const setHideTimeout = () => {
-      // Définir le timeout pour masquer le panneau après 2 secondes
+      // Hide the volume panel after 2s
       this.timeoutId = setTimeout(() => {
         this.volumePanel.classList.remove("slide-in-right");
         this.volumePanel.classList.add("slide-out-right");
@@ -76,22 +76,21 @@ export default class View {
     };
 
     this.volumePanel.onmouseleave = () => {
-      // L'utilisateur ne survole plus l'élément, redéfinir le timeout
+      // When user stop hovering the volume panel, restart the timeout
       setHideTimeout();
     };
 
-    // Utilisez touchend pour gérer la fin d'un toucher sur les appareils mobiles
+    // Manage hover effects on mobile
     this.volumePanel.ontouchend = () => {
-      // L'utilisateur ne touche plus l'élément, redéfinir le timeout
       setHideTimeout();
     };
 
-    // Toggle la visibilité du panneau
+    // Toggle volume panel
     if (this.volumePanel.classList.contains("slide-out-right")) {
       this.volumePanel.classList.remove("slide-out-right");
       this.volumePanel.classList.add("slide-in-right");
 
-      // Si l'utilisateur ne survole pas déjà, définir le timeout
+      // If user is not hovering the panel, set timeout
       if (!this.timeoutId) {
         setHideTimeout();
       }
@@ -99,7 +98,7 @@ export default class View {
       this.volumePanel.classList.remove("slide-in-right");
       this.volumePanel.classList.add("slide-out-right");
 
-      // Annuler le timeout car le panneau est en train de se fermer
+      // Cancel timeout is user is closing the panel
       if (this.timeoutId) {
         clearTimeout(this.timeoutId);
         this.timeoutId = null;
