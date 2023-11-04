@@ -94,10 +94,10 @@ class controlView extends View {
     this.btnsContainer.classList.remove("displaynone");
   }
 
-  cleanInfosDivs() {
-    this.displayNone(this.durationTitle);
-    this.visibilityHidden(this.ambianceTitle);
-  }
+  // cleanInfosDivs() {
+  //   this.displayNone(this.durationTitle);
+  //   this.visibilityHidden(this.ambianceTitle);
+  // }
 
   adHandlerSetAmbiance(handler) {
     this.ambianceBtnsContainer.addEventListener("click", (e) => {

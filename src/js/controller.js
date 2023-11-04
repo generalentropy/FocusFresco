@@ -40,7 +40,7 @@ const startTimer = () => {
   // Display timer control buttons
   controlView.displayControlbuttons();
   // Hide and clean information texts
-  controlView.cleanInfosDivs();
+  // controlView.cleanInfosDivs();
 };
 
 // Pause timer

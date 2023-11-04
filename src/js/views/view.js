@@ -57,9 +57,13 @@ export default class View {
   }
 
   toggleVolumePanel() {
-    this.volumePanel.classList.toggle("displaynone");
-
-    this.toggleVolumeBtn.classList.toggle("background-toggle");
+    if (this.volumePanel.classList.contains("slide-in-right")) {
+      this.volumePanel.classList.remove("slide-in-right");
+      this.volumePanel.classList.add("slide-out-right");
+    } else {
+      this.volumePanel.classList.remove("slide-out-right");
+      this.volumePanel.classList.add("slide-in-right");
+    }
   }
 
   setActiveClass(clickedBtn, buttonClass, parentClass) {

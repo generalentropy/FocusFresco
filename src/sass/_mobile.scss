@@ -63,3 +63,11 @@
     top: 90px;
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  #open-volume:hover,
+  #open-settings:hover,
+  #open-modal:hover {
+    background-color: var(--secondary-dark);
+  }
+}

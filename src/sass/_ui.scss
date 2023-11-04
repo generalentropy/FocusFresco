@@ -271,3 +271,33 @@ input[type="range"]::-moz-range-thumb {
   width: 0;
   box-shadow: -20rem 0 0 20rem var(--grey);
 }
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(130%); /* Start from off-screen to the left */
+    opacity: 0; /* Start from fully transparent */
+  }
+  to {
+    transform: translateX(0%); /* End at the natural position */
+    opacity: 1; /* End at fully opaque */
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.2s ease-out forwards; /* Apply the animation */
+}
+
+.slide-out-right {
+  animation: slideOutToRight 0.2s ease-out forwards;
+}
