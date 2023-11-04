@@ -2,6 +2,12 @@ import controlView from "./views/controlView";
 import * as model from "./model.js";
 import audioView from "./views/audioView.js";
 
+/*
+ - Régler le volume lors du changement d'ambiance sur le volume défini par l'user
+ - Bouton pause
+ - Bouton mute
+*/
+
 // Set state.ambiance
 const ambianceChange = (ambiance) => {
   model.methods.setAmbiance(ambiance);

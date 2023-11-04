@@ -33,11 +33,10 @@
     position: relative;
     border-radius: 10px;
     background-color: #fefefe;
-    padding: 30px;
-    width: 80%;
+    padding: 20px;
+    width: 90%;
     max-height: 80%;
     line-height: 15px;
-    overflow: auto;
   }
 
   .btn-duration {
@@ -62,9 +61,21 @@
     right: 10px;
     top: 90px;
   }
+
+  .pause-audio {
+    right: 10px;
+    top: 130px;
+  }
+
+  .mute-volume {
+    right: 10px;
+    top: 170px;
+  }
 }
 
 @media (hover: none) and (pointer: coarse) {
+  #pause-audio:hover,
+  #mute-volume:hover,
   #open-volume:hover,
   #open-settings:hover,
   #open-modal:hover {
