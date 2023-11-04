@@ -21,6 +21,7 @@ export default class View {
   closeSettingsBtn = document.getElementById("close-settings");
   toggleVolumeBtn = document.querySelector(".open-volume");
   volumePanel = document.querySelector(".volume-wrapper");
+  volumeSlider = document.getElementById("volume-slider");
 
   addHandlerOpenAbout(handler) {
     this.openAboutModalBtn.addEventListener("click", handler);
@@ -57,12 +58,52 @@ export default class View {
   }
 
   toggleVolumePanel() {
-    if (this.volumePanel.classList.contains("slide-in-right")) {
-      this.volumePanel.classList.remove("slide-in-right");
-      this.volumePanel.classList.add("slide-out-right");
-    } else {
+    // Ajoutez des gestionnaires d'événements pour mouseenter et mouseleave
+    this.volumePanel.onmouseenter = () => {
+      // L'utilisateur survole l'élément, annuler le timeout existant
+      if (this.timeoutId) {
+        clearTimeout(this.timeoutId);
+        this.timeoutId = null;
+      }
+    };
+
+    const setHideTimeout = () => {
+      // Définir le timeout pour masquer le panneau après 2 secondes
+      this.timeoutId = setTimeout(() => {
+        this.volumePanel.classList.remove("slide-in-right");
+        this.volumePanel.classList.add("slide-out-right");
+      }, 2000);
+    };
+
+    this.volumePanel.onmouseleave = () => {
+      // L'utilisateur ne survole plus l'élément, redéfinir le timeout
+      setHideTimeout();
+    };
+
+    // Utilisez touchend pour gérer la fin d'un toucher sur les appareils mobiles
+    this.volumePanel.ontouchend = () => {
+      // L'utilisateur ne touche plus l'élément, redéfinir le timeout
+      setHideTimeout();
+    };
+
+    // Toggle la visibilité du panneau
+    if (this.volumePanel.classList.contains("slide-out-right")) {
       this.volumePanel.classList.remove("slide-out-right");
       this.volumePanel.classList.add("slide-in-right");
+
+      // Si l'utilisateur ne survole pas déjà, définir le timeout
+      if (!this.timeoutId) {
+        setHideTimeout();
+      }
+    } else {
+      this.volumePanel.classList.remove("slide-in-right");
+      this.volumePanel.classList.add("slide-out-right");
+
+      // Annuler le timeout car le panneau est en train de se fermer
+      if (this.timeoutId) {
+        clearTimeout(this.timeoutId);
+        this.timeoutId = null;
+      }
     }
   }
 

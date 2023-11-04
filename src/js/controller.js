@@ -1,5 +1,6 @@
 import controlView from "./views/controlView";
 import * as model from "./model.js";
+import audioView from "./views/audioView.js";
 
 // Set state.ambiance
 const ambianceChange = (ambiance) => {
@@ -73,6 +74,17 @@ const restartTimer = () => {
   model.methods.restartTimer(model.state.sessionDurationMin);
 };
 
+// set Ambiance volume
+const setAmbianceVolume = (audioObject) => {
+  // Retourne une fonction qui sera appelée par l'événement 'input'
+  return function (event) {
+    if (!audioObject.currentAudio) return;
+    const newVolume = event.target.value / 100;
+    // AudioObject est accessible grâce à la closure
+    audioObject.currentAudio.volume = newVolume;
+  };
+};
+
 // prettier-ignore
 const init = function () {
   controlView.addHandlerOpenAbout(controlView.openAbout.bind(controlView));
@@ -87,6 +99,7 @@ const init = function () {
   controlView.addHandlerPauseTimer(pauseTimer);
   controlView.addHandlerResetTimer(resetTimer);
   controlView.addHandlerResumeTimer(resumeTimer);
+  audioView.addHandlerVolumeChange(setAmbianceVolume(model.state));
 };
 
 init();
