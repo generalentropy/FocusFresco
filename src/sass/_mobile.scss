@@ -34,8 +34,8 @@
     border-radius: 10px;
     background-color: #fefefe;
     padding: 20px;
-    width: 90%;
-    max-height: 80%;
+    width: 92%;
+    max-height: 90%;
     line-height: 15px;
   }
 
@@ -52,24 +52,8 @@
     list-style: decimal inside;
   }
 
-  #open-settings {
-    right: 10px;
-    top: 50px;
-  }
-
-  .open-volume {
-    right: 10px;
-    top: 90px;
-  }
-
-  .pause-audio {
-    right: 10px;
-    top: 130px;
-  }
-
-  .mute-volume {
-    right: 10px;
-    top: 170px;
+  .buttons-top-wrapper {
+    flex-direction: column;
   }
 }
 
