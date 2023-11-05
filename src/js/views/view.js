@@ -67,6 +67,18 @@ export default class View {
       }
     };
 
+    // For touch interactions
+    this.volumePanel.addEventListener(
+      "touchstart",
+      () => {
+        if (this.timeoutId) {
+          clearTimeout(this.timeoutId);
+          this.timeoutId = null;
+        }
+      },
+      { passive: false }
+    ); // 'passive: false' allows you to call preventDefault()
+
     const setHideTimeout = () => {
       // Hide the volume panel after 2s
       this.timeoutId = setTimeout(() => {

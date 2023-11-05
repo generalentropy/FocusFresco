@@ -45,8 +45,8 @@ export const methods = {
 
   // Set current sound volume (slider)
   setAmbianceVolume(newVolumeEvent) {
-    if (!state.currentAudio) return;
     const newVolume = newVolumeEvent.target.value / 100;
+    console.log(newVolume);
     methods.setGlobalVolume(newVolume);
   },
 
