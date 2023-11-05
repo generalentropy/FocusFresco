@@ -7,4 +7,5 @@ export const audioConfig = {
   extension: ".mp3",
   audioUrl: "https://assets.visualartisan.fr/focusfresco/",
   soundAlertUrl: "/sound/chime.mp3",
+  defaultAudioVolume: 0.5,
 };

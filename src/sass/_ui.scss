@@ -245,17 +245,16 @@ input[type="range"]::-moz-range-thumb {
   animation: slideOutToRight 0.2s ease-out forwards;
 }
 
-/* -------------------------- top buttons  --------------------------  */
+/* -------------------------- top buttons container  --------------------------  */
 
 .buttons-top-wrapper {
   position: absolute;
   display: flex;
+  align-self: flex-end;
   gap: 10px;
   flex-direction: row;
-  justify-content: right;
-  top: 10px;
-  right: 10px;
-  border: 1px solid rgb(143, 2, 96);
+  padding: 15px;
+  top: 0;
 }
 
 .icons-top {

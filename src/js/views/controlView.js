@@ -1,6 +1,4 @@
 import View from "./view";
-import { TIMER_MIN, TIMER_SEC, PAUSE_MIN, PAUSE_SEC } from "../config";
-import * as model from "../model";
 
 class controlView extends View {
   // Set model.state.currentState
@@ -107,11 +105,7 @@ class controlView extends View {
 
       const ambiance = btnAmbianceClicked.dataset.ambiance;
 
-      this.setActiveClass(
-        btnAmbianceClicked,
-        ".ambiance",
-        ".ambiance-container"
-      );
+      this.setActiveClass(btnAmbianceClicked, ".ambiance", ".timer-container");
 
       // Set state.ambiance with current ambiance
       handler(ambiance);

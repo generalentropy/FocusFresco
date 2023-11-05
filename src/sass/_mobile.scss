@@ -1,12 +1,16 @@
 /* -------------------------- Mobile --------------------------  */
 
 @media only screen and (max-width: 600px) {
-  .timer-container {
-    padding: 30px 0;
+  .container {
+    justify-content: center;
   }
 
   .timer {
     padding: 30px 0;
+  }
+
+  .ambiance-container {
+    gap: 16px;
   }
 
   .ambiance img {
@@ -21,11 +25,14 @@
     padding: 0.4em 0.4em;
   }
 
-  .ambiance-container {
-    gap: 16px;
-  }
   .header__logo {
-    width: 100px;
+    display: none;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    padding: 10px;
+    border-bottom: 4px solid var(--secondary-dark);
   }
 
   .modal-content {
@@ -53,7 +60,20 @@
   }
 
   .buttons-top-wrapper {
-    flex-direction: column;
+    position: relative;
+    align-self: center;
+    padding: 25px;
+    background-color: rgba(7, 7, 7, 0.206);
+    border-radius: 25px;
+    margin: 30px;
+  }
+
+  .pause-audio,
+  .mute-volume,
+  .open-volume,
+  .open-modal,
+  .open-settings {
+    background-color: var(--secondary-dark);
   }
 }
 

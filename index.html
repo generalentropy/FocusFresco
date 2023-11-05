@@ -14,11 +14,11 @@
     />
   </head>
   <body>
+    <header class="header">
+      <h1>FocusFresco</h1>
+      <img src="/img/logo2.svg" alt="logo" class="header__logo" />
+    </header>
     <div class="container">
-      <header class="header">
-        <h1>FocusFresco</h1>
-        <img src="/img/logo2.svg" alt="logo" class="header__logo" />
-      </header>
       <div class="timer-container">
         <div class="ambiance-title">Pick your mood or not</div>
         <div class="ambiance-container">
@@ -48,11 +48,11 @@
           <button class="ambiance ambiance-8" data-ambiance="sky">
             <img src="/img/user-astronaut-solid.svg" />
           </button>
-          <button class="ambiance ambiance-6" data-ambiance="coffee">
-            <img src="/img/mug-hot-solid.svg" />
+          <button class="ambiance ambiance-6" data-ambiance="brook">
+            <img src="/img/droplet-solid.svg" />
           </button>
-          <button class="ambiance ambiance-6" data-ambiance="coffee">
-            <img src="/img/mug-hot-solid.svg" />
+          <button class="ambiance ambiance-7" data-ambiance="train">
+            <img src="/img/train-subway-solid.svg" />
           </button>
         </div>
 
@@ -83,38 +83,31 @@
             Reset
           </button>
         </div>
-
-        <div class="tasks-container">
-          <div class="tasks">
-            <div class="tasks-title"></div>
-          </div>
-        </div>
       </div>
 
+      <div class="buttons-top-wrapper">
+        <div id="open-volume" class="open-volume">
+          <img class="icons-top" src="/img/volume-solid.svg" />
+        </div>
+
+        <div id="mute-volume" class="mute-volume">
+          <img class="icons-top" src="/img/mute-solid.svg" />
+        </div>
+
+        <div id="pause-audio" class="pause-audio">
+          <img class="icons-top" src="/img/pause-solid.svg" />
+        </div>
+
+        <div id="open-settings" class="open-settings">
+          <img class="icons-top" src="/img/gear-solid.svg" />
+        </div>
+        <div id="open-modal" class="open-modal">
+          <img class="icons-top" src="/img/question-solid.svg" />
+        </div>
+      </div>
       <!-- end container -->
     </div>
     <footer class="footer"></footer>
-
-    <div class="buttons-top-wrapper">
-      <div id="open-volume" class="open-volume">
-        <img class="icons-top" src="/img/volume-solid.svg" />
-      </div>
-
-      <div id="mute-volume" class="mute-volume">
-        <img class="icons-top" src="/img/mute-solid.svg" />
-      </div>
-
-      <div id="pause-audio" class="pause-audio">
-        <img class="icons-top" src="/img/pause-solid.svg" />
-      </div>
-
-      <div id="open-settings" class="open-settings">
-        <img class="icons-top" src="/img/gear-solid.svg" />
-      </div>
-      <div id="open-modal" class="open-modal">
-        <img class="icons-top" src="/img/question-solid.svg" />
-      </div>
-    </div>
 
     <!-- modale -->
     <section class="modal-wrapper">

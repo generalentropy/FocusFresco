@@ -6,6 +6,7 @@ export const state = {
   ambiance: "muted",
   isSessionActive: false,
   currentAudio: null,
+  audioVolume: config.audioConfig.defaultAudioVolume,
   sessionDurationHour: config.TIMER_HOUR,
   sessionDurationMin: config.TIMER_MIN,
   sessionDurationSec: config.TIMER_SEC,
@@ -32,6 +33,21 @@ export const methods = {
 
   setIsSessionActive(current) {
     state.isSessionActive = current;
+  },
+
+  setGlobalVolume(newVolume) {
+    state.audioVolume = newVolume;
+
+    if (!state.currentAudio) return;
+
+    state.currentAudio.volume = newVolume;
+  },
+
+  // Set current sound volume (slider)
+  setAmbianceVolume(newVolumeEvent) {
+    if (!state.currentAudio) return;
+    const newVolume = newVolumeEvent.target.value / 100;
+    methods.setGlobalVolume(newVolume);
   },
 
   getAmbiance() {
@@ -112,6 +128,9 @@ export const methods = {
     state.currentAudio = new Audio(
       `${config.audioConfig.audioUrl}${state.ambiance}${config.audioConfig.extension}`
     );
+
+    // Set the current user volume (default 0.5)
+    state.currentAudio.volume = state.audioVolume;
 
     // Init loop
     state.currentAudio.loop = true;
