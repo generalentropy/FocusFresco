@@ -9,7 +9,6 @@ export default class View {
   ambianceBtnsContainer = document.querySelector('.container');
   mainStartSessionBtn = document.querySelector('.main-session-button');
   btnsContainer = document.querySelector('.buttons-container');
-  btnMuted = document.querySelector('.ambiance-5');
   modalAbout = document.querySelector('.modal-wrapper');
   openAboutModalBtn = document.getElementById('open-modal');
   closeAboutModalBtn = document.getElementById('close-modal');
@@ -22,6 +21,7 @@ export default class View {
   toggleVolumeBtn = document.querySelector('.open-volume');
   volumePanel = document.querySelector('.volume-wrapper');
   volumeSlider = document.getElementById('volume-slider');
+  btnMute = document.getElementById('mute-volume');
 
   addHandlerOpenAbout(handler) {
     this.openAboutModalBtn.addEventListener('click', handler);

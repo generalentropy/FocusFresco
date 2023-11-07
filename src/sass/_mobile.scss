@@ -25,6 +25,11 @@
     padding: 0.4em 0.4em;
   }
 
+  .ambiance-wrapper {
+    margin-top: 4vh;
+    margin-top: 4dvh;
+  }
+
   .header__logo {
     display: none;
   }
@@ -60,8 +65,11 @@
   }
 
   .buttons-top-wrapper {
+    display: flex;
     position: relative;
-    align-self: center;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
     padding: 25px;
     background-color: rgba(7, 7, 7, 0.206);
     border-radius: 25px;

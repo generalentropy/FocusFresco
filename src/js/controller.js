@@ -96,6 +96,7 @@ const init = function () {
   controlView.addHandlerResetTimer(resetTimer);
   controlView.addHandlerResumeTimer(resumeTimer);
   audioView.addHandlerVolumeChange(model.methods.setAmbianceVolume);
+  audioView.addHandlerMute(model.methods.muteVolume)
 };
 
 init();

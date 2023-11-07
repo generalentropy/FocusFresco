@@ -82,7 +82,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
 }
 .duration-title {
   font-weight: 700;
@@ -119,19 +118,25 @@
 
 /* -------------------------- Timers  --------------------------  */
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .timer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  // border: 1px solid brown;
+}
+
+.timer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.ambiance-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: end;
+  margin-top: 10dvh;
 }
 
 .timer {

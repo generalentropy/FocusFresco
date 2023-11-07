@@ -20,91 +20,98 @@
     </header>
     <div class="container">
       <div class="timer-container">
-        <div class="ambiance-title">Pick your mood or not</div>
-        <div class="ambiance-container">
-          <button class="ambiance ambiance-1" data-ambiance="fire">
-            <img src="/img/fire-solid.svg" />
-          </button>
-          <button class="ambiance ambiance-2" data-ambiance="waves">
-            <img src="/img/water-solid.svg" />
-          </button>
-          <button class="ambiance ambiance-3" data-ambiance="forest">
-            <img src="/img/tree-solid.svg" />
-          </button>
-          <button class="ambiance ambiance-4" data-ambiance="storm">
-            <img src="/img/cloud-bolt-solid.svg" />
-          </button>
-          <button class="ambiance ambiance-5" data-ambiance="coffee">
-            <img src="/img/mug-hot-solid.svg" />
-          </button>
-        </div>
-        <div class="ambiance-container">
-          <button class="ambiance ambiance-6" data-ambiance="cat">
-            <img src="/img/cat-solid.svg" />
-          </button>
-          <button class="ambiance ambiance-7" data-ambiance="night">
-            <img src="/img/moon-solid.svg" />
-          </button>
-          <button class="ambiance ambiance-8" data-ambiance="sky">
-            <img src="/img/user-astronaut-solid.svg" />
-          </button>
-          <button class="ambiance ambiance-6" data-ambiance="brook">
-            <img src="/img/droplet-solid.svg" />
-          </button>
-          <button class="ambiance ambiance-7" data-ambiance="train">
-            <img src="/img/train-subway-solid.svg" />
-          </button>
-        </div>
-
-        <div class="duration-container">
-          <div class="duration-title">
-            Select the duration of the work session
-          </div>
-          <div class="btn-duration-container">
-            <button class="btn-duration active" data-duration="25">
-              25min
+        <div class="ambiance-wrapper">
+          <div class="ambiance-title">Pick your mood or not</div>
+          <div class="ambiance-container">
+            <button class="ambiance ambiance-1" data-ambiance="fire">
+              <img src="/img/fire-solid.svg" />
             </button>
-            <button class="btn-duration" data-duration="45">45min</button>
-            <button class="btn-duration" data-duration="60">60min</button>
+            <button class="ambiance ambiance-2" data-ambiance="waves">
+              <img src="/img/water-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-3" data-ambiance="forest">
+              <img src="/img/tree-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-4" data-ambiance="storm">
+              <img src="/img/cloud-bolt-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-5" data-ambiance="coffee">
+              <img src="/img/mug-hot-solid.svg" />
+            </button>
+          </div>
+          <div class="ambiance-container">
+            <button class="ambiance ambiance-6" data-ambiance="cat">
+              <img src="/img/cat-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-7" data-ambiance="night">
+              <img src="/img/moon-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-8" data-ambiance="sky">
+              <img src="/img/user-astronaut-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-6" data-ambiance="brook">
+              <img src="/img/droplet-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-7" data-ambiance="train">
+              <img src="/img/train-subway-solid.svg" />
+            </button>
           </div>
         </div>
 
-        <div class="timer">
-          <button class="main-session-button">Start a session</button>
-          <div class="timer-info"></div>
-        </div>
+        <div class="timer-wrapper">
+          <div class="duration-container">
+            <div class="duration-title">
+              Select the duration of the work session
+            </div>
+            <div class="btn-duration-container">
+              <button class="btn-duration active" data-duration="25">
+                25min
+              </button>
+              <button class="btn-duration" data-duration="45">45min</button>
+              <button class="btn-duration" data-duration="60">60min</button>
+            </div>
+          </div>
 
-        <div class="buttons-container displaynone">
-          <button class="button start-button" data-state="started">
-            Resume
-          </button>
-          <button class="button pause-button" data-state="paused">Pause</button>
-          <button class="button reset-button" data-state="started">
-            Reset
-          </button>
+          <div class="timer">
+            <button class="main-session-button">Start a session</button>
+            <div class="timer-info"></div>
+          </div>
+
+          <div class="buttons-container displaynone">
+            <button class="button start-button" data-state="started">
+              Resume
+            </button>
+            <button class="button pause-button" data-state="paused">
+              Pause
+            </button>
+            <button class="button reset-button" data-state="started">
+              Reset
+            </button>
+          </div>
+
+          <div class="buttons-top-wrapper">
+            <div id="open-volume" class="open-volume">
+              <img class="icons-top" src="/img/volume-solid.svg" />
+            </div>
+
+            <div id="mute-volume" class="mute-volume">
+              <img class="icons-top" src="/img/mute-solid.svg" />
+            </div>
+
+            <div id="pause-audio" class="pause-audio">
+              <img class="icons-top" src="/img/pause-solid.svg" />
+            </div>
+
+            <div id="open-settings" class="open-settings">
+              <img class="icons-top" src="/img/gear-solid.svg" />
+            </div>
+            <div id="open-modal" class="open-modal">
+              <img class="icons-top" src="/img/question-solid.svg" />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="buttons-top-wrapper">
-        <div id="open-volume" class="open-volume">
-          <img class="icons-top" src="/img/volume-solid.svg" />
-        </div>
-
-        <div id="mute-volume" class="mute-volume">
-          <img class="icons-top" src="/img/mute-solid.svg" />
-        </div>
-
-        <div id="pause-audio" class="pause-audio">
-          <img class="icons-top" src="/img/pause-solid.svg" />
-        </div>
-
-        <div id="open-settings" class="open-settings">
-          <img class="icons-top" src="/img/gear-solid.svg" />
-        </div>
-        <div id="open-modal" class="open-modal">
-          <img class="icons-top" src="/img/question-solid.svg" />
-        </div>
-      </div>
       <!-- end container -->
     </div>
     <footer class="footer"></footer>

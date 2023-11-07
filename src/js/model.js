@@ -7,6 +7,7 @@ export const state = {
   isSessionActive: false,
   currentAudio: null,
   audioVolume: config.audioConfig.defaultAudioVolume,
+  originalVolume: '',
   sessionDurationHour: config.TIMER_HOUR,
   sessionDurationMin: config.TIMER_MIN,
   sessionDurationSec: config.TIMER_SEC,
@@ -85,6 +86,11 @@ export const methods = {
     state.timer.addEventListener('targetAchieved', callbacks.onFinish);
 
     return timer;
+  },
+
+  muteVolume() {
+    state.originalVolume = state.currentAudio.volume;
+    methods.setGlobalVolume(0);
   },
 
   restartTimer() {
