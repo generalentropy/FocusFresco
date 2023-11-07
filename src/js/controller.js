@@ -1,6 +1,6 @@
-import controlView from "./views/controlView";
-import * as model from "./model.js";
-import audioView from "./views/audioView.js";
+import controlView from './views/controlView';
+import * as model from './model.js';
+import audioView from './views/audioView.js';
 
 /*
 TODO :
@@ -54,13 +54,13 @@ const startTimer = () => {
 // Pause timer
 const pauseTimer = () => {
   if (model.methods.getTimer().isPaused()) return;
-  console.log("pause");
+  console.log('pause');
   model.methods.getTimer().pause();
 };
 
 // Reset timer
 const resetTimer = () => {
-  console.log("Reset");
+  console.log('Reset');
   controlView.fixStartDelay(model.state);
   model.methods.getTimer().reset();
 };
@@ -71,7 +71,7 @@ const resumeTimer = () => {
   model.methods.getTimer().start({
     countdown: true,
   });
-  console.log("resume timer");
+  console.log('resume timer');
 };
 
 // Restart timer with selected session duration

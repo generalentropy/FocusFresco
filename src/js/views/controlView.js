@@ -1,10 +1,10 @@
-import View from "./view";
+import View from './view';
 
 class controlView extends View {
   // Set model.state.currentState
   addHandlersetGlobalState(handler) {
-    this.btnsContainer.addEventListener("click", (e) => {
-      const btnControlClicked = e.target.closest(".button");
+    this.btnsContainer.addEventListener('click', (e) => {
+      const btnControlClicked = e.target.closest('.button');
 
       if (!btnControlClicked) return;
       const currentState = btnControlClicked.dataset.state;
@@ -13,7 +13,7 @@ class controlView extends View {
   }
 
   addHandlerStartSession(handler) {
-    this.mainStartSessionBtn.addEventListener("click", handler);
+    this.mainStartSessionBtn.addEventListener('click', handler);
   }
 
   // prettier-ignore
@@ -27,7 +27,7 @@ class controlView extends View {
    }
 
   addHandlerResumeTimer(handler) {
-    this.btnStart.addEventListener("click", handler);
+    this.btnStart.addEventListener('click', handler);
   }
 
   updateDisplay(timerObject) {
@@ -36,24 +36,24 @@ class controlView extends View {
   }
 
   pomodoroFinished(timerObject) {
-    console.log("Timer finished");
+    console.log('Timer finished');
   }
 
   addHandlerPauseTimer(handler) {
-    this.btnPause.addEventListener("click", () => {
+    this.btnPause.addEventListener('click', () => {
       handler();
     });
   }
 
   addHandlerResetTimer(handler) {
-    this.btnReset.addEventListener("click", () => {
+    this.btnReset.addEventListener('click', () => {
       handler();
     });
   }
 
   // Attach event listener for setting timer duration and resetting
   adHandlerSetTimerDuration(handler, reset) {
-    this.btnsDuration.addEventListener("click", (e) => {
+    this.btnsDuration.addEventListener('click', (e) => {
       this.handleSetTimerDuration(e, handler);
       this.handleResetTimer(reset);
     });
@@ -61,15 +61,15 @@ class controlView extends View {
 
   // Individual handler method for setting timer duration
   handleSetTimerDuration(e, handler) {
-    const btnDurationClicked = e.target.closest(".btn-duration");
+    const btnDurationClicked = e.target.closest('.btn-duration');
     if (!btnDurationClicked) return;
 
     const duration = btnDurationClicked.dataset.duration;
 
     this.setActiveClass(
       btnDurationClicked,
-      ".btn-duration",
-      ".btn-duration-container"
+      '.btn-duration',
+      '.btn-duration-container'
     );
 
     // Set state.sessionDuration with current duration
@@ -89,7 +89,7 @@ class controlView extends View {
   }
 
   displayControlbuttons() {
-    this.btnsContainer.classList.remove("displaynone");
+    this.btnsContainer.classList.remove('displaynone');
   }
 
   // cleanInfosDivs() {
@@ -98,14 +98,14 @@ class controlView extends View {
   // }
 
   adHandlerSetAmbiance(handler) {
-    this.ambianceBtnsContainer.addEventListener("click", (e) => {
-      const btnAmbianceClicked = e.target.closest(".ambiance");
+    this.ambianceBtnsContainer.addEventListener('click', (e) => {
+      const btnAmbianceClicked = e.target.closest('.ambiance');
 
       if (!btnAmbianceClicked) return;
 
       const ambiance = btnAmbianceClicked.dataset.ambiance;
 
-      this.setActiveClass(btnAmbianceClicked, ".ambiance", ".timer-container");
+      this.setActiveClass(btnAmbianceClicked, '.ambiance', '.timer-container');
 
       // Set state.ambiance with current ambiance
       handler(ambiance);

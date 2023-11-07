@@ -1,8 +1,8 @@
-import View from "./view";
+import View from './view';
 
 class AudioView extends View {
   addHandlerVolumeChange(callback) {
-    this.volumeSlider.addEventListener("input", (e) => callback(e));
+    this.volumeSlider.addEventListener('input', (e) => callback(e));
   }
 }
 

@@ -1,16 +1,16 @@
-import Timer from "easytimer.js";
-import * as config from "./config";
+import Timer from 'easytimer.js';
+import * as config from './config';
 
 export const state = {
   sound: true,
-  ambiance: "muted",
+  ambiance: 'muted',
   isSessionActive: false,
   currentAudio: null,
   audioVolume: config.audioConfig.defaultAudioVolume,
   sessionDurationHour: config.TIMER_HOUR,
   sessionDurationMin: config.TIMER_MIN,
   sessionDurationSec: config.TIMER_SEC,
-  currentState: "",
+  currentState: '',
   timer: new Timer(),
   alertEndTimer: new Audio(config.audioConfig.soundAlertUrl),
 };
@@ -71,7 +71,7 @@ export const methods = {
   },
 
   startTimer(callbacks) {
-    const timer = state.timer;
+    const { timer } = state;
 
     timer.start({
       countdown: true,
@@ -81,15 +81,15 @@ export const methods = {
       },
     });
 
-    state.timer.addEventListener("secondsUpdated", callbacks.onUpdate);
-    state.timer.addEventListener("targetAchieved", callbacks.onFinish);
+    state.timer.addEventListener('secondsUpdated', callbacks.onUpdate);
+    state.timer.addEventListener('targetAchieved', callbacks.onFinish);
 
     return timer;
   },
 
   restartTimer() {
     // check if there is an active session
-    if (!this.getIsSessionActive()) return console.log("session not started");
+    if (!this.getIsSessionActive()) return console.log('session not started');
     state.timer.stop();
     state.timer.start({
       countdown: true,
@@ -101,8 +101,8 @@ export const methods = {
   },
 
   isSoundAllowedToPlay() {
-    if (state.ambiance === "muted") {
-      console.log("Not allowed, sound is muted");
+    if (state.ambiance === 'muted') {
+      console.log('Not allowed, sound is muted');
       return false;
     }
 
@@ -111,14 +111,14 @@ export const methods = {
 
   stopAudio() {
     if (!state.currentAudio)
-      return console.log("No audio set, nothing to stop");
+      return console.log('No audio set, nothing to stop');
 
     try {
       state.currentAudio.pause();
       state.currentAudio.currentTime = 0;
     } catch (error) {
-      console.error("Failed to stop audio:", error);
-      return "Failed to stop audio";
+      console.error('Failed to stop audio:', error);
+      return 'Failed to stop audio';
     }
   },
 
@@ -143,14 +143,14 @@ export const methods = {
   },
 
   async playAudio() {
-    if (!state.currentAudio) return console.log("No audio set");
+    if (!state.currentAudio) return console.log('No audio set');
     if (!this.isSoundAllowedToPlay()) return;
 
     try {
       await state.currentAudio.play();
     } catch (error) {
-      console.error("Failed to play audio:", error);
-      return "Failed to play audio";
+      console.error('Failed to play audio:', error);
+      return 'Failed to play audio';
     }
   },
 };
