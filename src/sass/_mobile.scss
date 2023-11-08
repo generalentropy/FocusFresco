@@ -86,11 +86,11 @@
 }
 
 @media (hover: none) and (pointer: coarse) {
-  #pause-audio:hover,
-  #mute-volume:hover,
-  #open-volume:hover,
-  #open-settings:hover,
-  #open-modal:hover {
+  .pause-audio:hover,
+  .mute-volume:hover,
+  .open-volume:hover,
+  .open-settings:hover,
+  .open-modal:hover {
     background-color: var(--secondary-dark);
   }
 }

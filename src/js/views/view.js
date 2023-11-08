@@ -21,7 +21,7 @@ export default class View {
   toggleVolumeBtn = document.querySelector('.open-volume');
   volumePanel = document.querySelector('.volume-wrapper');
   volumeSlider = document.getElementById('volume-slider');
-  btnMute = document.getElementById('mute-volume');
+  btnMute = document.querySelector('.mute-volume');
 
   addHandlerOpenAbout(handler) {
     this.openAboutModalBtn.addEventListener('click', handler);

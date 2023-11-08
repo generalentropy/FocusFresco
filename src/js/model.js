@@ -1,5 +1,6 @@
 import Timer from 'easytimer.js';
 import * as config from './config';
+import { compile } from 'sass';
 
 export const state = {
   sound: true,
@@ -89,6 +90,7 @@ export const methods = {
   },
 
   muteVolume() {
+    if (!state.currentAudio) return console.log('no audio');
     state.originalVolume = state.currentAudio.volume;
     methods.setGlobalVolume(0);
   },

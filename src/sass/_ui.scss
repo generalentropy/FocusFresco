@@ -16,14 +16,6 @@
   background-color: var(--punchy-dark);
 }
 
-#pause-audio:hover,
-#mute-volume:hover,
-#open-volume:hover,
-#open-settings:hover,
-#open-modal:hover {
-  background-color: var(--punchy-dark);
-}
-
 .modal {
   box-sizing: border-box;
   z-index: 4;
@@ -260,6 +252,14 @@ input[type='range']::-moz-range-thumb {
 .icons-top {
   width: 18px;
   height: 18px;
+}
+
+.pause-audio:hover,
+.mute-volume:hover,
+.open-volume:hover,
+.open-settings:hover,
+.open-modal:hover {
+  background-color: var(--punchy-dark);
 }
 
 .pause-audio,
