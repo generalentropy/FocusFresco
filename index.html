@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusFresco - Productivity app</title>
+    <link rel="stylesheet" href="./src/sass/main.scss" />
+    <script type="module" src="./src/js/controller.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1>FocusFresco</h1>
+      <img src="/img/logo2.svg" alt="logo" class="header__logo" />
+    </header>
+    <div class="container">
+      <div class="timer-container">
+        <div class="ambiance-wrapper">
+          <div class="ambiance-title">Pick your mood or not</div>
+          <div class="ambiance-container">
+            <button class="ambiance ambiance-1" data-ambiance="fire">
+              <img src="/img/fire-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-2" data-ambiance="waves">
+              <img src="/img/water-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-3" data-ambiance="forest">
+              <img src="/img/tree-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-4" data-ambiance="storm">
+              <img src="/img/cloud-bolt-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-5" data-ambiance="coffee">
+              <img src="/img/mug-hot-solid.svg" />
+            </button>
+          </div>
+          <div class="ambiance-container">
+            <button class="ambiance ambiance-6" data-ambiance="cat">
+              <img src="/img/cat-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-7" data-ambiance="night">
+              <img src="/img/moon-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-8" data-ambiance="sky">
+              <img src="/img/user-astronaut-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-6" data-ambiance="brook">
+              <img src="/img/droplet-solid.svg" />
+            </button>
+            <button class="ambiance ambiance-7" data-ambiance="train">
+              <img src="/img/train-subway-solid.svg" />
+            </button>
+          </div>
+        </div>
+
+        <div class="timer-wrapper">
+          <div class="duration-container">
+            <div class="duration-title">
+              Select the duration of the work session
+            </div>
+            <div class="btn-duration-container">
+              <button class="btn-duration active" data-duration="25">
+                25min
+              </button>
+              <button class="btn-duration" data-duration="45">45min</button>
+              <button class="btn-duration" data-duration="60">60min</button>
+            </div>
+          </div>
+
+          <div class="timer">
+            <button class="main-session-button">Start a session</button>
+            <div class="timer-info"></div>
+          </div>
+
+          <div class="buttons-container displaynone">
+            <button class="button start-button" data-state="started">
+              Resume
+            </button>
+            <button class="button pause-button" data-state="paused">
+              Pause
+            </button>
+            <button class="button reset-button" data-state="started">
+              Reset
+            </button>
+          </div>
+
+          <div class="buttons-top-wrapper">
+            <div id="open-volume" class="open-volume">
+              <img class="icons-top" src="/img/volume-solid.svg" />
+            </div>
+
+            <div id="mute-volume" class="mute-volume">
+              <img class="icons-top" src="/img/mute-solid.svg" />
+            </div>
+
+            <div id="pause-audio" class="pause-audio">
+              <img class="icons-top" src="/img/pause-solid.svg" />
+            </div>
+
+            <div id="open-settings" class="open-settings">
+              <img class="icons-top" src="/img/gear-solid.svg" />
+            </div>
+            <div id="open-modal" class="open-modal">
+              <img class="icons-top" src="/img/question-solid.svg" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- end container -->
+    </div>
+    <footer class="footer"></footer>
+
+    <!-- modale -->
+    <section class="modal-wrapper">
+      <div class="modal" id="modal">
+        <div class="modal-content">
+          <span class="close" id="close-modal">&times;</span>
+
+          <h3>What is the Pomodoro Technique?</h3>
+          <br />
+          <p>
+            The Pomodoro Technique is a time management strategy developed by
+            Francesco Cirillo in the late 1980s. At its core, this method
+            involves using a timer to work in focused bursts of 25 minutes,
+            known as "pomodori." The technique's name is derived from the
+            Italian word for tomato ("pomodoro"), a nod to the tomato-shaped
+            kitchen timer Cirillo used during his university days.
+          </p>
+          <br />
+          <p>
+            This structured approach breaks the work process into intervals
+            separated by short breaks. It draws inspiration from iterative
+            cycles and agile practices in software development, including pair
+            programming. The central premise is that frequent breaks can enhance
+            mental agility. Research has indicated that these periodic rest
+            intervals can positively influence memory retention.
+          </p>
+          <br />
+          <p>The Pomodoro Technique can be summarized in five steps:</p>
+          <br />
+          <ul>
+            <li>Choose a specific task to work on</li>
+            <li>Set the timer (pomodoro) for a 25-minute work session</li>
+            <!-- prettier-ignore -->
+            <li>Work on the task uninterrupted until the timer goes off, then mark that session as complete</li>
+            <li>Take a brief 5-10 minute break</li>
+            <li>
+              After completing four pomodori, indulge in a longer break ranging
+              from 20-25 minutes.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="settings-wrapper">
+      <div class="settings">
+        <div class="settings-content">
+          <span class="close-settings" id="close-settings">&times;</span>
+          <h1>Settings</h1>
+
+          <p>Set timer duration</p>
+          <p>Set pause duration</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="volume-wrapper slide-out-right">
+      <input type="range" id="volume-slider" min="0" max="100" value="50" />
+    </div>
+  </body>
+</html>

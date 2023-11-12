@@ -1,0 +1,96 @@
+/* -------------------------- Mobile --------------------------  */
+
+@media only screen and (max-width: 600px) {
+  .container {
+    justify-content: center;
+  }
+
+  .timer {
+    padding: 30px 0;
+  }
+
+  .ambiance-container {
+    gap: 16px;
+  }
+
+  .ambiance img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .ambiance {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0.4em 0.4em;
+  }
+
+  .ambiance-wrapper {
+    margin-top: 4vh;
+    margin-top: 4dvh;
+  }
+
+  .header__logo {
+    display: none;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    padding: 10px;
+    border-bottom: 4px solid var(--secondary-dark);
+  }
+
+  .modal-content {
+    font-size: 12px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #fefefe;
+    padding: 20px;
+    width: 92%;
+    max-height: 90%;
+    line-height: 15px;
+  }
+
+  .btn-duration {
+    padding: 10px 22px;
+  }
+
+  .btn-duration-container {
+    gap: 18px;
+  }
+
+  .modal-content li {
+    margin: 2px 0;
+    list-style: decimal inside;
+  }
+
+  .buttons-top-wrapper {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
+    padding: 25px;
+    background-color: rgba(7, 7, 7, 0.206);
+    border-radius: 25px;
+    margin: 30px;
+  }
+
+  .pause-audio,
+  .mute-volume,
+  .open-volume,
+  .open-modal,
+  .open-settings {
+    background-color: var(--secondary-dark);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .pause-audio:hover,
+  .mute-volume:hover,
+  .open-volume:hover,
+  .open-settings:hover,
+  .open-modal:hover {
+    background-color: var(--secondary-dark);
+  }
+}
