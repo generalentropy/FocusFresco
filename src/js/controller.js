@@ -4,10 +4,10 @@ import audioView from './views/audioView.js';
 
 /* TODO
 
- [x] keep volume constan across app
- [x] Bouton mute
- [ ] Audio pause button
- [ ] Buttons active
+[x] keep volume constan across app
+[x] Bouton mute
+[ ] Audio pause button
+[ ] Buttons active
 
 */
 

@@ -15,16 +15,14 @@ class controlView extends View {
   addHandlerStartSession(handler) {
     this.mainStartSessionBtn.addEventListener('click', handler);
   }
-
   // prettier-ignore
   addHandlerStartTimer(timerObject) {
-  
     // Attach events handler to object timer
-    timerObject.addEventListener("secondsUpdated", () => this.updateDisplay(timerObject));
-    timerObject.addEventListener("targetAchieved", () => this.pomodoroFinished(timerObject));
+    timerObject.addEventListener('secondsUpdated', () => this.updateDisplay(timerObject));
+    timerObject.addEventListener('targetAchieved', () => this.pomodoroFinished(timerObject));
 
     console.log('Timer started');
-   }
+  }
 
   addHandlerResumeTimer(handler) {
     this.btnStart.addEventListener('click', handler);
@@ -100,13 +98,9 @@ class controlView extends View {
   adHandlerSetAmbiance(handler) {
     this.ambianceBtnsContainer.addEventListener('click', (e) => {
       const btnAmbianceClicked = e.target.closest('.ambiance');
-
       if (!btnAmbianceClicked) return;
-
       const ambiance = btnAmbianceClicked.dataset.ambiance;
-
       this.setActiveClass(btnAmbianceClicked, '.ambiance', '.timer-container');
-
       // Set state.ambiance with current ambiance
       handler(ambiance);
     });
